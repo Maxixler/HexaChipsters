@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun Mar 24 22:28:51 2024
+# Process ID: 10668
+# Current directory: C:/Users/doguk/Documents/RISC-V/rv32i_test full
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent29904 C:\Users\doguk\Documents\RISC-V\rv32i_test full\rv32i_test full.xpr
+# Log file: C:/Users/doguk/Documents/RISC-V/rv32i_test full/vivado.log
+# Journal file: C:/Users/doguk/Documents/RISC-V/rv32i_test full\vivado.jou
+# Running On: Zenbook, OS: Windows, CPU Frequency: 2096 MHz, CPU Physical cores: 12, Host memory: 16518 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.xpr}
+update_compile_order -fileset sources_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.runs/impl_1/wrapper.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a100t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.runs/impl_1/wrapper.bin} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.runs/impl_1/wrapper.bin} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
