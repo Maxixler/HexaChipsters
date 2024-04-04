@@ -1,0 +1,522 @@
+
+*** Running vivado
+    with args -log wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source wrapper.tcl
+
+
+ECHO is off.
+ECHO is off.
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 492.504 ; gain = 217.609
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/utils_1/imports/synth_1/top_tb.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/utils_1/imports/synth_1/top_tb.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top wrapper -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 28316
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1357.902 ; gain = 439.742
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'mem_rdata', assumed default net type 'wire' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:28]
+WARNING: [Synth 8-8895] 'mem_rdata' is already implicitly declared on line 28 [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:40]
+INFO: [Synth 8-6157] synthesizing module 'wrapper' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/wrapper.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_50mhz' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.runs/synth_1/.Xil/Vivado-35624-Zenbook/realtime/clk_50mhz_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_50mhz' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.runs/synth_1/.Xil/Vivado-35624-Zenbook/realtime/clk_50mhz_stub.v:6]
+WARNING: [Synth 8-7071] port 'reset' of module 'clk_50mhz' is unconnected for instance 'clk1' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/wrapper.v:16]
+WARNING: [Synth 8-7071] port 'locked' of module 'clk_50mhz' is unconnected for instance 'clk1' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/wrapper.v:16]
+WARNING: [Synth 8-7023] instance 'clk1' of module 'clk_50mhz' has 4 connections declared, but only 2 given [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/wrapper.v:16]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:5]
+INFO: [Synth 8-6157] synthesizing module 'matrak' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fetch' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:154]
+INFO: [Synth 8-6155] done synthesizing module 'fetch' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:154]
+INFO: [Synth 8-6157] synthesizing module 'fd_regs' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:182]
+INFO: [Synth 8-6155] done synthesizing module 'fd_regs' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:182]
+INFO: [Synth 8-6157] synthesizing module 'decode' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:214]
+INFO: [Synth 8-6155] done synthesizing module 'decode' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:214]
+INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:258]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:258]
+INFO: [Synth 8-6157] synthesizing module 'address_calculator' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:302]
+INFO: [Synth 8-6155] done synthesizing module 'address_calculator' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:302]
+INFO: [Synth 8-6157] synthesizing module 'writeback' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:316]
+INFO: [Synth 8-6155] done synthesizing module 'writeback' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:316]
+INFO: [Synth 8-6157] synthesizing module 'load_store' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:339]
+INFO: [Synth 8-6155] done synthesizing module 'load_store' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:339]
+INFO: [Synth 8-6157] synthesizing module 'controller' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:390]
+INFO: [Synth 8-226] default block is never used [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:453]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:390]
+INFO: [Synth 8-6155] done synthesizing module 'matrak' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/matrak.v:6]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:43]
+INFO: [Synth 8-6157] synthesizing module 'memory' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/memory.v:5]
+INFO: [Synth 8-3876] $readmem data file 'program.mem' is read successfully [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/memory.v:19]
+WARNING: [Synth 8-6104] Input port 'data_o' has an internal driver [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/memory.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'memory' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/memory.v:5]
+INFO: [Synth 8-6157] synthesizing module 'gpio' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/gpio.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'gpio' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/gpio.v:5]
+INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:7]
+INFO: [Synth 8-6157] synthesizing module 'transmitter' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:73]
+INFO: [Synth 8-226] default block is never used [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:109]
+INFO: [Synth 8-6155] done synthesizing module 'transmitter' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:73]
+INFO: [Synth 8-6157] synthesizing module 'receiver' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:179]
+INFO: [Synth 8-6155] done synthesizing module 'receiver' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:179]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:7]
+INFO: [Synth 8-6157] synthesizing module 'clock_counter' [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/clock_counter.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clock_counter' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/clock_counter.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'wrapper' (0#1) [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/wrapper.v:5]
+WARNING: [Synth 8-7137] Register data_reg in module receiver has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:227]
+WARNING: [Synth 8-7137] Register gpio_t_reg in module receiver has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/uart.v:242]
+WARNING: [Synth 8-3848] Net mem_rdata in module/entity top does not have driver. [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.srcs/src_/top.v:28]
+WARNING: [Synth 8-7129] Port ren_i in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[31] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[30] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[29] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[28] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[27] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[26] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[25] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[24] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[23] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[22] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[21] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[20] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[19] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[18] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[17] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[16] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[15] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[14] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[13] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[12] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[11] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[10] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[9] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[8] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[7] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[6] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[5] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[4] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[31] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[30] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[29] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[28] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[27] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[26] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[25] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[24] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[23] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[22] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[21] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[20] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[19] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[18] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[17] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[16] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[15] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[14] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[13] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[12] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[11] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[10] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[9] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[8] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[31] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[30] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[29] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[28] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[27] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[26] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[25] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[24] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[23] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[22] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[21] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[20] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[19] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[18] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[17] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[16] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[15] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[14] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[13] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[12] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[11] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[10] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[9] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_i[8] in module gpio is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[31] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[30] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[29] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[28] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[27] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[26] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[25] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[24] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[23] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[22] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[21] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[20] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[19] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[18] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[17] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[16] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[15] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[14] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[13] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[12] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[1] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr_i[0] in module memory is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst_i[31] in module controller is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1472.457 ; gain = 554.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1472.457 ; gain = 554.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1472.457 ; gain = 554.297
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1472.457 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/doguk/Videos/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz/clk_50mhz_in_context.xdc] for cell 'clk1'
+Finished Parsing XDC File [c:/Users/doguk/Videos/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz/clk_50mhz_in_context.xdc] for cell 'clk1'
+Parsing XDC File [C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/Nexys-A7-100T-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1569.176 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Sistem belirtilen yolu bulamçyor.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1569.176 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100_i. (constraint file  {c:/Users/doguk/Videos/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz/clk_50mhz_in_context.xdc}, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100_i. (constraint file  {c:/Users/doguk/Videos/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz/clk_50mhz_in_context.xdc}, line 4).
+Applied set_property KEEP_HIERARCHY = SOFT for clk1. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                   START |                               01 |                               01
+                TRANSMIT |                               10 |                               10
+                    DONE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'transmitter'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'receiver'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 6     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 5     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Multipliers : 
+	              32x32  Multipliers := 1     
++---RAMs : 
+	              32K Bit	(1024 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 19    
+	  15 Input   32 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 1     
+	   3 Input   32 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 2     
+	  11 Input   13 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 4     
+	   4 Input    8 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
+	   9 Input    4 Bit        Muxes := 1     
+	   8 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 5     
+	   4 Input    1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP alu_out_o0, operation Mode is: A*B.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: Generating DSP alu_out_o0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: Generating DSP alu_out_o0, operation Mode is: A*B.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: Generating DSP alu_out_o0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+DSP Report: operator alu_out_o0 is absorbed into DSP alu_out_o0.
+INFO: [Synth 8-6851] RAM (t1/me1/mem_reg) has partial Byte Wide Write Enable pattern, however no output register found in fanout of RAM. Recommended to use supported Byte Wide Write Enable template. 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:43 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+ Sort Area is  alu_out_o0_0 : 0 0 : 3101 5754 : Used 1 time 0
+ Sort Area is  alu_out_o0_0 : 0 1 : 2653 5754 : Used 1 time 0
+ Sort Area is  alu_out_o0_3 : 0 0 : 2634 5119 : Used 1 time 0
+ Sort Area is  alu_out_o0_3 : 0 1 : 2485 5119 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-----------------------+-----------+----------------------+------------------+
+|Module Name | RTL Object            | Inference | Size (Depth x Width) | Primitives       | 
++------------+-----------------------+-----------+----------------------+------------------+
+|wrapper     | t1/mt1/d1/regfile_reg | Implied   | 32 x 32              | RAM32M x 12      | 
+|wrapper     | t1/me1/mem_reg        | Implied   | 1 K x 32             | RAM256X1S x 128  | 
++------------+-----------------------+-----------+----------------------+------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|alu         | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 1569.176 ; gain = 651.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:01:01 . Memory (MB): peak = 1600.570 ; gain = 682.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+-----------------------+-----------+----------------------+------------------+
+|Module Name | RTL Object            | Inference | Size (Depth x Width) | Primitives       | 
++------------+-----------------------+-----------+----------------------+------------------+
+|wrapper     | t1/mt1/d1/regfile_reg | Implied   | 32 x 32              | RAM32M x 12      | 
+|wrapper     | t1/me1/mem_reg        | Implied   | 1 K x 32             | RAM256X1S x 128  | 
++------------+-----------------------+-----------+----------------------+------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:01:04 . Memory (MB): peak = 1650.605 ; gain = 732.445
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-4442] BlackBox module clk1 has unconnected pin reset
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|alu         | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_50mhz     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |clk_50mhz |     1|
+|2     |CARRY4    |    55|
+|3     |DSP48E1   |     3|
+|4     |LUT1      |     6|
+|5     |LUT2      |    76|
+|6     |LUT3      |    99|
+|7     |LUT4      |    90|
+|8     |LUT5      |   161|
+|9     |LUT6      |   799|
+|10    |MUXF7     |    34|
+|11    |RAM256X1S |   128|
+|12    |RAM32M    |    10|
+|13    |RAM32X1D  |     4|
+|14    |FDCE      |   225|
+|15    |FDPE      |     3|
+|16    |FDRE      |    16|
+|17    |IBUF      |     2|
+|18    |OBUF      |    17|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1663.457 ; gain = 745.297
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 1 critical warnings and 76 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:01:09 . Memory (MB): peak = 1663.457 ; gain = 648.578
+Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:01:12 . Memory (MB): peak = 1663.457 ; gain = 745.297
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1675.484 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 234 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1679.168 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 142 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 128 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 10 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
+
+Sistem belirtilen yolu bulamçyor.
+Synth Design complete | Checksum: cce21fcb
+INFO: [Common 17-83] Releasing license: Synthesis
+67 Infos, 110 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:19 . Memory (MB): peak = 1679.168 ; gain = 1167.742
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1679.168 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/doguk/Videos/rv32i_test full/rv32i_test full.runs/synth_1/wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file wrapper_utilization_synth.rpt -pb wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  3 20:19:47 2024...
