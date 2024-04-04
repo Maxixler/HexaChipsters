@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../matrak-main/episodes/ep5/nexysa7/sw" --include "../../../../rv32i_test full.ip_user_files/ipstatic" \
+"../../../../rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz_clk_wiz.v" \
+"../../../../rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/clock_counter.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/gpio.v" \
+"../../../../../matrak-main/episodes/ep6/matrak/src/matrak.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/memory.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/top.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/uart.v" \
+"../../../../../matrak-main/episodes/ep5/nexysa7/hw/wrapper.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,14 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/clock_counter.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/gpio.v,,clock_counter,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/gpio.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep6/matrak/src/matrak.v,,gpio,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/memory.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/top.v,,memory,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/top.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/uart.v,,top,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/uart.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/wrapper.v,,transmitter;uart,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/wrapper.v,1710675331,verilog,,,,wrapper,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep6/matrak/src/matrak.v,1710675331,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/memory.v,,address_calculator;alu;controller;decode;fd_regs;fetch;load_store;matrak;writeback,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz.v,1710680326,verilog,,C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/clock_counter.v,,clk_50mhz,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz_clk_wiz.v,1710680326,verilog,,C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz.v,,clk_50mhz_clk_wiz,,,../../../../../matrak-main/episodes/ep5/nexysa7/sw;../../../../rv32i_test full.ip_user_files/ipstatic,,,,,
+C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,,,,,,,

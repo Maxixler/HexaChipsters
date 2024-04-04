@@ -1,0 +1,30 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_50mhz_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.gen/sources_1/ip/clk_50mhz/clk_50mhz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_50mhz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/clock_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/gpio.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gpio
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep6/matrak/src/matrak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrak
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module fd_regs
+INFO: [VRFC 10-311] analyzing module decode
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module address_calculator
+INFO: [VRFC 10-311] analyzing module writeback
+INFO: [VRFC 10-311] analyzing module load_store
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+WARNING: [VRFC 10-2938] 'mem_rdata' is already implicitly declared on line 26 [C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/top.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module transmitter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/doguk/Documents/RISC-V/rv32i_test full/rv32i_test full.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -1,0 +1,3 @@
+Time resolution is 1 ps
+WARNING: File program.mem referenced on C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep6/matrak/src/matrak.v at line 485 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+INFO: xsimkernel Simulation Memory Usage: 10524 KB (Peak: 10524 KB), Simulation CPU Usage: 18343 ms

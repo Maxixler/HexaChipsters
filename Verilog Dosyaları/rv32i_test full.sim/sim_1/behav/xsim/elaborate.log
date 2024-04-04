@@ -1,0 +1,35 @@
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot wrapper_behav xil_defaultlib.wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [C:/Users/doguk/Documents/RISC-V/matrak-main/episodes/ep5/nexysa7/hw/wrapper.v:14]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_50mhz_clk_wiz
+Compiling module xil_defaultlib.clk_50mhz
+Compiling module xil_defaultlib.fetch
+Compiling module xil_defaultlib.fd_regs
+Compiling module xil_defaultlib.decode
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.address_calculator
+Compiling module xil_defaultlib.writeback
+Compiling module xil_defaultlib.load_store
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.matrak
+Compiling module xil_defaultlib.memory
+Compiling module xil_defaultlib.gpio
+Compiling module xil_defaultlib.transmitter_default
+Compiling module xil_defaultlib.uart
+Compiling module xil_defaultlib.clock_counter
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.wrapper
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot wrapper_behav
