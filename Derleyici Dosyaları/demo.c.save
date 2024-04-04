@@ -1,0 +1,25 @@
+#include "matrak.h"
+
+#define HIGH 1
+#define LOW 0
+
+void main(void) {
+   put_str("HexaChipsters\n");
+   put_str("Marmara Universitesi\n");
+   put_str("Elektrik Elektronik Muhendisligi\n");
+   put_str("2024\n");
+   uint32_t counter = 0;
+   char rx_ctrl=0x93;
+   char text[] = ".:HexaChipsters:.";
+   while(1){
+      delay_ms(1000);
+      char counter_arr[] = {'0' + (counter++) + '\n','\0'};
+      put_str(text);
+      put_str(counter_arr);
+      uint32_t rx_data = get_char();
+      const char* rx_char=(const char*)rx_data;
+      put_str(rx_char);
+      (rx_data==rx_ctrl) ? gpio_write(2, HIGH) : gpio_write(2, LOW);
+      put_str("\n");
+   }
+}
