@@ -270,6 +270,21 @@ module alu (
    // İkinci işlenen seçim sinyaline göre belirleniyor.
    wire signed [31:0] alu_b = alu_sel_i ? imm_ext_i : reg_b_i;
 
+   reg [31:0] a_mul, b_mul;
+   reg [31:0] a_div, b_div;   
+   reg [31:0] a_rem, b_rem;
+   
+   reg [31:0] quotient;
+   reg [31:0] remainder;
+   reg [31:0] neg_b;
+   reg [31:0] temp_a, temp_b;
+   
+     reg [31:0] count;
+     reg [31:0] cnt;
+       reg done;
+ 
+  integer i;
+
    // Sonuç 0'a eşit ise alu_zero_o sinyali 1 olur.
    assign alu_zero_o = ~(|alu_out_o);
 
@@ -287,17 +302,65 @@ module alu (
          4'b1001  : alu_out_o = {31'b0, alu_a < alu_b};  // Küçükse alu_out_o = 1, değilse alu_out_o = 0 (blt, bge, slt, slti)
          4'b1010  : alu_out_o = {31'b0, $unsigned(alu_a) < $unsigned(alu_b)}; // (İşaretsiz) küçükse alu_out_o = 1, değilse alu_out_o = 0 (bltu, bgeu, sltu, sltiu)
          //m komut seti 
-         4'b1011  : alu_out_o = alu_a * alu_b;           // �arpma (M komut seti mul)
-         4'b1100  : alu_out_o = alu_a / alu_b;           // B�lme (M komut seti div)
-         4'b1101  : alu_out_o = alu_a % alu_b;           // B�l�mden kalan (M komut seti rem)
-         
-         
+         4'b1011  : begin // Çarpma (M komut seti mul)
+          a_mul <= alu_a;
+          b_mul <= alu_b;
+          alu_out_o <= a_mul * b_mul;
+        end        
+         4'b1100  : begin // Bölme (M komut seti div)
+          a_div <= alu_a;
+          b_div <= alu_b;
+          
+      
+          
 
+
+ 
+
+if ((b_div == 0)|(a_div == 0)) begin
+      alu_out_o <= 0;
+    end else begin
+      cnt <= 0;
+      count <= 0;
+      temp_a <= a_div;
+      neg_b <= b_div ;
+      done <= 0;
+      // B�lme i�lemini ��karma kullanarak ger�ekle�tir
+      for (count = 0; count < 32; count = count + 1) begin
+        if (temp_a < neg_b) begin
+          done <= 1;
+        end
+        if (!done) begin
+          temp_a <= temp_a - neg_b;
+          cnt = cnt + 1;
+        end
+      end
+
+      // For d�ng�s� bitti�inde, kalan� hesapla
+//      if (temp_a != 0 && !done) begin
+//        count <= count - 1;
+//        temp_a <= temp_a + neg_b;
+//      end
+      alu_out_o <= cnt;
+    end
+      
+
+          
+          
+           ///
+        end  
+         4'b1101  : begin // Bölünden kalan (M komut seti rem)
+          a_rem <= alu_a;
+          b_rem <= alu_b;
+          alu_out_o <= a_rem % b_rem;
+        end  
+         //f komut seti test
+         4'b1110  : alu_out_o = alu_a + alu_b;   // toplama fadd.s
          default  : alu_out_o = 32'bx;                   // Geçersiz alu_fun_i sinyali
       endcase
    end
-
 endmodule
+
 
 module address_calculator (
    input                      ac_sel_i,   // Kontrol biriminden gelen kaynak seçim sinyali
@@ -387,23 +450,63 @@ module load_store (
 
 endmodule
 
+module Division (clk, ready, Dividend, Divisor, Q, R) ;
+   input  clk;
+   input [15:0] Dividend; 
+   input [15:0] Divisor;
+   output [15:0]Q; 
+   output [15:0] R; 
+   output ready;
+   reg [15:0]Q; 
+   reg [31:0] Dividend_copy Divisor_copy, diff;
+   wire [15:0] remainder = Dividend_copy[15:0];
+   reg [31:0] bit;
+   wire ready = !bit;
+   initial bit = 0;
+   always @( posedge clk )
+      if( ready )
+      begin
+         bit = 16;
+         Q = 0;
+         Dividend_copy = {16'd0 , Dividend}; //Output Dividend_copy=31 bits
+         Divisor_copy = {1'b0, Divisor, 15'd0}; //Output Divisor_copy 31 bits
+      end
+      else
+      begin
+         diff = Dividend_copy - Divisor_copy;
+               //Difference is negative: //copy dividend and put 0
+
+         Q = Q << 1;
+         //Shift 1 bit
+         if( !diff[31] )
+            begin Dividend_copy = diff;
+            Q[0] = 1'd1;
+            end
+            Divisor_copy = Divisor_copy >> 1;
+            bit = bit - 1; //Check for count, //when bit = bit-1 then stop the loop
+      end
+      
+endmodule
+
+
+
 module controller (
-   input [31:0]               inst_i,        // Boru hattı kaydedicisinden gelen buyruk
-   input                      alu_zero_i,    // ALU'dan gelen sonuç sıfır sinyali
-   output                     regfile_wen_o, // Kaydedici dosyası yazma yetkilendirme sinyali
-   output [2:0]               imm_ext_sel_o, // İvedi genişletici format seçim sinyali
-   output                     alu_sel_o,     // ALU ikinci işlenen seçim sinyali
-   output reg [3:0]           alu_fun_o,     // ALU işlem seçim sinyali
-   output                     pc_sel_o,      // Program sayacı adres seçim sinyali
-   output                     ac_sel_o,      // Adres hesaplayıcı kaynak seçim sinyali
-   output [2:0]               result_sel_o,  // Geriyazma kaynak seçim sinyali
+   input [31:0]               inst_i,        // Boru hatt� kaydedicisinden gelen buyruk
+   input                      alu_zero_i,    // ALU'dan gelen sonu� s�f�r sinyali
+   output                     regfile_wen_o, // Kaydedici dosyas� yazma yetkilendirme sinyali
+   output [2:0]               imm_ext_sel_o, // �vedi geni�letici format se�im sinyali
+   output                     alu_sel_o,     // ALU ikinci i�lenen se�im sinyali
+   output reg [3:0]           alu_fun_o,     // ALU i�lem se�im sinyali
+   output                     pc_sel_o,      // Program sayac� adres se�im sinyali
+   output                     ac_sel_o,      // Adres hesaplay�c� kaynak se�im sinyali
+   output [2:0]               result_sel_o,  // Geriyazma kaynak se�im sinyali
    output                     ls_wen_o,      // Bellek yazma yetkilendirme sinyali
    output                     ls_ren_o,      // Bellek okuma yetkilendirme sinyali
-   output [2:0]               ls_fmt_o,      // Yükleme depolama birimi için funct3 sinyali
-   output                     clear_o        // Boru hattı boşaltma sinyali
+   output [2:0]               ls_fmt_o,      // Y�kleme depolama birimi i�in funct3 sinyali
+   output                     clear_o        // Boru hatt� bo�altma sinyali
 );
 
-   // Buyruğun gerekli bölümleri ayıklanıyor.
+   // Buyru�un gerekli b�l�mleri ay�klan�yor.
    wire [6:0] opcode = inst_i[6:0];
    wire [2:0] funct3 = inst_i[14:12];
    wire [6:0] funct7 = inst_i[31:25];
@@ -419,23 +522,36 @@ module controller (
 
    always @(*) begin
       case (opcode)
-         7'b0110011  : control_signals = 15'b1_xxx_0_11_0_0_0_000_0_0; // R-type buyruk
+         7'b0110011  : control_signals = 15'b1_xxx_0_11_0_0_0_000_0_0; // R-type buyruk (M seti dahil)
          7'b0010011  : control_signals = 15'b1_000_1_11_0_0_0_000_0_0; // I-type buyruk
          7'b1100011  : control_signals = 15'b0_001_0_01_1_0_0_000_0_0; // B-type buyruk
          7'b1101111  : control_signals = 15'b1_010_0_00_0_1_0_001_0_0; // jal
          7'b1100111  : control_signals = 15'b1_000_0_00_0_1_1_001_0_0; // jalr
          7'b0110111  : control_signals = 15'b1_011_0_00_0_0_0_010_0_0; // lui
          7'b0010111  : control_signals = 15'b1_011_0_00_0_0_0_011_0_0; // auipc
-         7'b0000011  : control_signals = 15'b1_000_1_10_0_0_0_100_0_1; // load buyrukları
-         7'b0100011  : control_signals = 15'b0_100_1_10_0_0_0_000_1_0; // store buyrukları
-         7'b0000000  : control_signals = 15'b0_000_0_00_0_0_0_000_0_0; // Sıfırlama durumu
-         default     : control_signals = 15'bx_xxx_x_xx_x_x_x_xxx_x_x; // Geçersiz buyruk
+         7'b0000011  : control_signals = 15'b1_000_1_10_0_0_0_100_0_1; // load buyruklar�
+         7'b0100011  : control_signals = 15'b0_100_1_10_0_0_0_000_1_0; // store buyruklar�
+         7'b0000111  : control_signals = 15'b1_000_1_10_0_0_0_000_1_0; // FLW
+         7'b0100111  : control_signals = 15'b0_100_1_10_0_0_0_000_0_0; // FSW
+         7'b1010011  : control_signals = 15'b1_000_1_11_0_0_0_010_0_0; // FADD.S ,FSUB.S ,FMUL.S FDIV.S aritmetik ....
+         7'b1000011  : control_signals = 15'b1_000_1_11_0_0_0_010_0_0; // FMADD.S
+         7'b1000111  : control_signals = 15'b1_000_1_11_0_0_0_010_0_0; // FMSUB.S
+         7'b1001011  : control_signals = 15'b1_000_1_11_0_0_0_010_0_0; // FNMSUB.S
+         7'b1001111  : control_signals = 15'b1_000_1_11_0_0_0_010_0_0; // FNMADD.S 
+         7'b0101111  : control_signals = 15'b1_000_1_00_0_0_0_010_0_0; // A komut setinin opcode u 
+         7'b0000000  : control_signals = 15'b0_000_0_00_0_0_0_000_0_0; // S�f�rlama durumu
+         default     : control_signals = 15'bx_xxx_x_xx_x_x_x_xxx_x_x; // Ge�ersiz buyruk
       endcase
    end
 
-   // Buyruk R-type ise ve funct7 değeri 0x20 ise çıkarma işlemi anlamına gelir.
+
+   // Buyruk R-type ise ve funct7 de�eri 0x20 ise ��karma i�lemi anlam�na gelir.
    wire sub = opcode[5] & funct7[5];
 
+   wire f_alu_sel = (funct7==7'b0000000) & (opcode==7'b1010011);
+
+   wire m_sel = (funct7==7'b0000001) & (opcode==7'b0110011);
+   
    // ALU'da yapılacak işlem belirleniyor.
    always @(*) begin
       case (alu_dec)
@@ -450,7 +566,18 @@ module controller (
                default  : alu_fun_o = 4'bx;
             endcase
          2'b11    : // R-type veya I-type
-            case (funct3)
+            if (m_sel) begin
+              case (funct3)
+               3'b000   : alu_fun_o = 4'b1011; // mul
+               3'b100   : alu_fun_o = 4'b1100; // div
+               3'b101   : alu_fun_o = 4'b1100; // divu
+               3'b111   : alu_fun_o = 4'b1101; // remu
+               default  : alu_fun_o = 4'bx;
+              endcase
+            end else if (f_alu_sel) begin
+               alu_fun_o = 4'b1110; // fadd.s
+            end else begin
+              case (funct3)
                3'b000   : // add-addi veya sub buyruğu
                   if (sub) begin
                      alu_fun_o = 4'b0001; // sub
@@ -470,7 +597,8 @@ module controller (
                3'b110   : alu_fun_o = 4'b0100; // or, ori
                3'b111   : alu_fun_o = 4'b0010; // and, andi
                default  : alu_fun_o = 4'b0000;
-            endcase
+              endcase
+            end
          default  : alu_fun_o = 4'b0000; // Varsayılan işlem toplama
       endcase
    end
@@ -492,4 +620,6 @@ module controller (
    assign pc_sel_o   = (branch_op & branch_valid) | jump_op; // Dallanma ve atlama durumu kontrol ediliyor.
    assign clear_o    = pc_sel_o; // Boru hattını boşalt
 
+
 endmodule
+
